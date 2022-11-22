@@ -7,4 +7,16 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+
+  def comfirm
+
+  end
+
+  def complete
+
+  end
+
+  def create
+
+  end
 end

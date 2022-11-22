@@ -29,26 +29,22 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-    get 'addresses/create'
-    get 'addresses/update'
-    get 'addresses/destroy'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-    get 'cart_items/update'
-    get 'cart_items/create'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
+  scope module: :public do
+    root to: 'homes#top'
+    get '/about' => 'homes#about', as: 'about'
+    resources :items, only: [:index, :show]
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/information/edit' => 'customers#edit'
+    patch '/customers/information' => 'customers#update'
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
+    resources :cart_items, only: [:index, :show, :create]
+    delete '/cart_items/:id' => 'cart_items#destroy'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :orders, only: [:new, :index, :show, :create]
+    post '/orders/comfirm' => 'orders#comfirm'
+    get '/orders/complete' => 'orders#complete'
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -59,11 +55,6 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessiions'
   }
-
-  root to: 'homes#top'
-  get '/about' => 'homes#about', as: 'about'
-
-  resources :items, only: [:index, :show]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
