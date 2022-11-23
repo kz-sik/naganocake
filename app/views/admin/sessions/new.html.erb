@@ -8,7 +8,7 @@
       <%#= form_with model: @user, url: admin_session_path do |f| %>
         <div class="field">
           <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
         </div>
 
         <div class="field">
