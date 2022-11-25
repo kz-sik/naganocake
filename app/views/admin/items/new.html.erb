@@ -7,10 +7,13 @@
 <%= f.label :introduction, '商品説明' %>
 <%= f.text_area :introduction, placeholder: 'ここに説明文を記述します' %><br>
 <%= f.label :genre_id, 'ジャンル' %>
-<%= %><br>
+<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい" %><br>
 <%= f.label :price, '税抜き価格' %>
 <%= f.text_field :price, placeholder: '1000' %>円<br>
 <%= f.label :is_active, '販売ステータス' %>
-<%= %><br>
+<%= f.radio_button :is_active, '0'%>
+<%= f.label :is_active, '販売中', value: 0 %>
+<%= f.radio_button :is_active, '1'%>
+<%= f.label :is_active, '販売停止中', value: 1 %><br>
 <%= f.submit "新規登録", class:"btn btn-success" %>
 <% end %>
