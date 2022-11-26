@@ -1,6 +1,3 @@
 ja:
   enums:
     order:
-      is_active:
-        on_sale: "販売中"
-        stopping_sales: "販売停止中"
