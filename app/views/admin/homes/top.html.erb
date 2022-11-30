@@ -4,18 +4,20 @@
   <thead>
     <tr>
       <th>購入日時</th>
+      <th>購入者</th>
       <th>注文個数</th>
       <th>注文ステータス</th>
     </tr>
   </thead>
   <tbody>
-    <%# .each do || %>
+    <% @order_details.each do |order_detail| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= link_to order_detail.created_at, admin_order_path(order_detail.id) %></td>
+        <td><%= order_detail.order.customer.name %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= order_detail.order.order_status %></td>
       </tr>
-    <%# end %>
-    <%#= paginate @ %>
+    <% end %>
+    <%= paginate @ %>
   </tbody>
 </table>
