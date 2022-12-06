@@ -19,7 +19,9 @@
 
 <div>
   <% @items.each do |item| %>
-    <%= image_tag item.image %>
+    <%= link_to item_path(item.id) do %>
+      <%= image_tag item.image %>
+    <% end %>
     <%= item.name %>
     ￥<%= item.price.to_s(:delimited) %>
   <% end %>

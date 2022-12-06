@@ -1,6 +1,6 @@
 <h4>新規会員登録</h4>
 
-<%= form_with model: @public, url: customer_registration_path do |f| %>
+<%= form_with model: resource, url: registration_path(resource) do |f| %>
 
   <table>
     <tbody>
