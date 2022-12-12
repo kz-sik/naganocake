@@ -19,6 +19,15 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    
 
+  end
+  
+  private
+  
+  def order_params
+    params.require(:order).permit()
   end
 end
