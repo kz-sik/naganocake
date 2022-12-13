@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
+    @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
     if  @cart_item.present?
       @cart_item.amount += cart_item_params[:amount].to_i
       @cart_item.update(amount: @cart_item.amount)
