@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <%= @cart_items.each do |cart_item| %>
+    <% @cart_items.each do |cart_item| %>
       <tr>
         <td><%= cart_item.item.name %></td>
         <td><%= cart_item.item.price.round.to_s(:delimited) %></td>
@@ -23,7 +23,7 @@
   <tbody>
     <tr>
       <th>送料</th>
-      <td></td>
+      <td><%= @order.postage %></td>
     </tr>
     <tr>
       <th>商品合計</th>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <th>請求金額</th>
-      <td></td>
+      <td><%= @order.price.to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
@@ -50,3 +50,8 @@
     </tr>
   </tbody>
 </table>
+<div>
+  <%= form_with model: @order, url; orders_path, method: :post do |f| %>
+
+  <% end %>
+</div>
