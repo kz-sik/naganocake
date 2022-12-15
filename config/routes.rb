@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     patch '/customers/withdraw' => 'customers#withdraw'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :show, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :show, :create]
     post '/orders/comfirm' => 'orders#comfirm'
     get '/orders/complete' => 'orders#complete'
+    resources :orders, only: [:new, :index, :show, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
