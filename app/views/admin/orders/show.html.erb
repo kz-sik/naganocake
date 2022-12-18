@@ -3,11 +3,11 @@
   <tbody>
     <tr>
       <td>購入者</td>
-      <td><%= @order.customer.name %></td>
+      <td><%= @order.customer.full_name %></td>
     </tr>
     <tr>
       <td>注文日</td>
-      <td><%= @order.created_at %></td>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
       <td>配送先</td>
@@ -18,11 +18,14 @@
     </tr>
     <tr>
       <td>支払方法</td>
-      <td></td>
+      <td><%= @order.order_status_i18n %></td>
     </tr>
     <tr>
-      <td>注文ステータス</td>
-      <td></td>
+      <%= form_with model: @order, url: admin_order_path(params[:id]), method: :patch do |f| %>
+        <td><%= f.label :order_status, "注文ステータス" %></td>
+        <td><%= f.select :order_status_i18n, *[0..4] %></td>
+        <td><%= f.submit "更新", class: "btn btn-success" %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>
@@ -36,14 +39,16 @@
     <th></th>
   </thead>
   <tbody>
-    <%= %>
+    <% @order_details.each do |order_detail| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= order_detail.item.name %></td>
+        <td><%= order_detail.price %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= order_detail.subtotal %></td>
+        <%= form_with model: order_detail, url: admin_order_path(order_detail.id), method: :patch do |f| %>
+          <td><%= f.select :crafting_status_i18n, *[0..3] %></td>
+          <td><%= f.submit "更新", class: "btn btn-success" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
