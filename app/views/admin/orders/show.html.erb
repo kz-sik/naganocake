@@ -23,7 +23,7 @@
     <tr>
       <%= form_with model: @order, url: admin_order_path(params[:id]), method: :patch do |f| %>
         <td><%= f.label :order_status, "注文ステータス" %></td>
-        <td><%= f.select :order_status_i18n, *[0..4] %></td>
+        <td><%= f.select :order_status, Order.order_statuses.keys.map { |k| [t("enums.order.order_status.#{k}"),k]} %></td>
         <td><%= f.submit "更新", class: "btn btn-success" %></td>
       <% end %>
     </tr>
@@ -45,8 +45,8 @@
         <td><%= order_detail.price %></td>
         <td><%= order_detail.amount %></td>
         <td><%= order_detail.subtotal %></td>
-        <%= form_with model: order_detail, url: admin_order_path(order_detail.id), method: :patch do |f| %>
-          <td><%= f.select :crafting_status_i18n, *[0..3] %></td>
+        <%= form_with model: order_detail, url: admin_order_details_path(@order.id, order_detail.id), method: :patch do |f| %>
+          <td><%= f.select :crafting_status, OrderDetail.crafting_statuses.keys.map { |k| [t("enums.order_detail.crafting_status.#{k}"),k]} %></td>
           <td><%= f.submit "更新", class: "btn btn-success" %></td>
         <% end %>
       </tr>

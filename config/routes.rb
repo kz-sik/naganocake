@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
-    patch '/orders/:order_id/order_details/:id' => 'order_details#update'
+    patch '/orders/:order_id/order_details/:id' => 'orders_detail#update', as: 'order_details'
   end
   scope module: :public do
     root to: 'homes#top'
