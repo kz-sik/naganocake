@@ -14,14 +14,14 @@
 </table>
 
 <div>
-  <%= image_tag @item.image %>
-  <%= @item.name %>
-  <%= @item.introduction %>
+  <%= image_tag @item.get_item_image(400,400) %>
+  <%= @item.name %><br>
+  <%= @item.introduction %><br>
   ￥<%= @item.price.to_s(:delimited) %><small>（税込）</small>
 </div>
 
 <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
   <%= f.hidden_field :item_id, :value => @item.id %>
   <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
-  <%= f.submit "カートに入れる" %>
+  <%= f.submit "カートに入れる", class: "btn btn-success" %>
 <% end %>

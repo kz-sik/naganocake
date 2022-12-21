@@ -1,4 +1,4 @@
-<h1>商品新規登録</h1>
+<h4 class="title">商品新規登録</h4>
 <%= form_with model: @item, url: admin_items_path, method: :create do |f| %>
 <%= f.label :image, '商品画像' %>
 <%= f.file_field :image, accept: "image/*" %><br>
@@ -15,5 +15,5 @@
 <%= f.label :is_active, '販売中' %>
 <%= f.radio_button :is_active, false %>
 <%= f.label :is_active, '販売停止中' %><br>
-<%= f.submit "新規登録", class:"btn btn-success" %>
+<%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>

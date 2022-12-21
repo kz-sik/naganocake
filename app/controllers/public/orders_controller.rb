@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
       @order.payment = params[:order][:payment]
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:select_address] = "1"
       @order = Order.new
       @address = Address.find(params[:order][:address_id])

@@ -1,4 +1,4 @@
-<h1><%= @customer_full_name %>さんの会員情報編集</h1>
+<h4 class="title"><%= @customer.full_name %>さんの会員情報編集</h4>
 <table>
   <tbody>
     <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
@@ -7,31 +7,31 @@
       <td><%= @customer.id %></td>
     </tr>
     <tr>
-      <td>氏名</td>
+      <td><%= f.label :full_name, '氏名' %></td>
       <td><%= f.text_field :first_name %>&emsp;<%= f.text_field :last_name %></td>
     </tr>
     <tr>
-      <td>フリガナ</td>
+      <td><%= f.label :full_name_kana, 'フリガナ' %></td>
       <td><%= f.text_field :first_name_kana %>&emsp;<%= f.text_field :last_name_kana %></td>
     </tr>
     <tr>
-      <td>郵便番号</td>
+      <td><%= f.label :postal_code, '郵便番号' %></td>
       <td><%= f.text_field :postal_code %></td>
     </tr>
     <tr>
-      <td>住所</td>
+      <td><%= f.label :address, '住所' %></td>
       <td><%= f.text_field :address %></td>
     </tr>
     <tr>
-      <td>電話番号</td>
+      <td><%= f.label :telephone_number, '電話番号' %></td>
       <td><%= f.text_field :telephone_number %></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
+      <td><%= f.label :email, 'メールアドレス' %></td>
       <td><%= f.text_field :email %></td>
     </tr>
     <tr>
-      <td>会員ステータス</td>
+      <td><%= f.label :is_deleted, '会員ステータス' %></td>
       <td>
         <%= f.radio_button :is_deleted, true %>
         <%= f.label :is_deleted, "有効" %>
@@ -43,5 +43,6 @@
       <td></td>
       <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
