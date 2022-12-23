@@ -17,7 +17,7 @@
   <%= image_tag @item.get_item_image(400,400) %>
   <%= @item.name %><br>
   <%= @item.introduction %><br>
-  ￥<%= @item.price.to_s(:delimited) %><small>（税込）</small>
+  ￥<%= @item.add_tax_price.to_s(:delimited) %><small>（税込）</small>
 </div>
 
 <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
