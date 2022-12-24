@@ -1,4 +1,4 @@
-<h4 class="title">ジャンル編集</h4>
+<h4><span class="title">ジャンル編集</span></h4>
 <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
   <%= f.label :name, 'ジャンル名' %>
   <%= f.text_field :name %>

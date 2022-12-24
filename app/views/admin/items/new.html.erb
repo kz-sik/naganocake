@@ -1,4 +1,4 @@
-<h4 class="title">商品新規登録</h4>
+<h4><span class="title">商品新規登録</span></h4>
 <%= form_with model: @item, url: admin_items_path, method: :create do |f| %>
 <%= f.label :image, '商品画像' %>
 <%= f.file_field :image, accept: "image/*" %><br>

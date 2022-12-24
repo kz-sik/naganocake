@@ -1,4 +1,4 @@
-<h4 class="title">注文履歴詳細</h4>
+<h4><span class="title">注文履歴詳細</span></h4>
 <%= form_with model: @order, url: admin_order_path(params[:id]), method: :patch do |f| %>
 <table>
   <tbody>
@@ -29,7 +29,7 @@
   </tbody>
 </table>
 <% end %>
-<table>
+<table class="table table-bordered">
   <thead>
     <th>商品名</th>
     <th>単価（税込）</th>
