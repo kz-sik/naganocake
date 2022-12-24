@@ -1,6 +1,6 @@
-<h4 class="title">ログイン</h4>
+<h4><span class="title">ログイン</span></h4>
 
-<h5 class="title">会員の方はこちらからログイン</h5>
+<h5><span class="title">会員の方はこちらからログイン</span></h5>
 <%= form_with model: resource, url: session_path(resource) do |f| %>
   <div class="field">
     <%= f.label :email, "メールアドレス" %>
@@ -17,7 +17,7 @@
   </div>
 <% end %>
 
-<h5 class="title">会員登録がお済みでない方</h5>
+<h5><span class="title">会員登録がお済みでない方</span></h5>
 <div>
   <%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。
 </div>

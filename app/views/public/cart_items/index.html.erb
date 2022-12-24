@@ -1,5 +1,7 @@
-<h4 class="title">ショッピングカート</h4>
-<span><%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, data: {confirm: '削除してもいいですか？'}, class: "btn btn-danger" %></span>
+<div class="d-flex justify-content-between">
+  <h4><span class="title">ショッピングカート</span></h4>
+  <span><%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, data: {confirm: '削除してもいいですか？'}, class: "btn btn-danger" %></span>
+</div>
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>

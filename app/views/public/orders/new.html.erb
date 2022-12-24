@@ -1,4 +1,4 @@
-<h4 class="title">注文情報の入力</h4>
+<h4><span class="title">注文情報の入力</span></h4>
 <%= form_with model: @order, url: orders_comfirm_path do |f| %>
   <%= f.label :payment, "支払い方法" %><br>
   <%= f.radio_button :payment, :credit_card %>
