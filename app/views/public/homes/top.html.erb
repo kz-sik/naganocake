@@ -31,7 +31,9 @@
       <h4>新着商品</h4>
       <div>
         <% @items.each do |item| %>
-          <%= image_tag item.get_item_image(150,150) %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_item_image(150,150) %>
+          <% end %>
           <%= item.name %>
           ￥<%= item.price.to_s(:delimited) %>
         <% end %>
