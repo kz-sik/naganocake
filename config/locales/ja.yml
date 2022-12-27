@@ -5,7 +5,7 @@ ja:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
       order_status:
-        before_payment: "入金前"
+        before_payment: "入金待ち"
         payment_confirmation: "入金確認"
         in_production: "製作中"
         delivery_preparation: "発送準備"
@@ -15,4 +15,4 @@ ja:
         production_not_possible: "製作不可"
         production_pending: "製作待ち"
         in_production: "製作中"
-        production_complete: "製作"
+        production_complete: "製作完了"
